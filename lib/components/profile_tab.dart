@@ -39,7 +39,7 @@ class _ProfileTabState extends State<ProfileTab> with SingleTickerProviderStateM
           ),
         ],
         ),
-      Expanded( // 왜 expanede로 감싸지?
+      Expanded( // 왜 expanede로 감싸지? - 부모의 크기만큼 모두 차지하려고
         child: TabBarView(
             controller: _tapcontroller,
             children: [

@@ -34,16 +34,23 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       endDrawer: ProfileDrawer(), // endDrawer는 오른쪽, drawer는 왼쪽
       appBar: _appBar(),
-      body: Column(
-        children: [
-          SizedBox(height: 20),
-          ProfileHeader(),
-          SizedBox(height: 20),
-          ProfileCountInfo(),
-          SizedBox(height: 20),
-          ProfileButton(),
-          Expanded(child: ProfileTab()),
-        ],
+      body: NestedScrollView(
+        body:  ProfileTab(),
+        headerSliverBuilder: (context, innerBoxIsScrolled) {
+          return [SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  SizedBox(height: 20),
+                  ProfileHeader(),
+                  SizedBox(height: 20),
+                  ProfileCountInfo(),
+                  SizedBox(height: 20),
+                  ProfileButton(),
+
+                ]
+              ),
+          )];
+        },
       ),
     );
   }
